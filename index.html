@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Sabith PC — Web Developer and Digital Marketing professional.">
+  <title>Sabith PC | Web Developer & Digital Marketing</title>
+  <style>
+    :root {
+      --bg: #f5f6f8; --surface: #fff; --ink: #17191d; --muted: #626b78;
+      --line: #e3e6eb; --accent: #2457d6; --accent-dark: #183fa5;
+      --dark: #111827; --soft: #edf2ff; --radius: 18px; --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: auto; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-weight: 800; letter-spacing: -.04em; font-size: 1.15rem; }
+    .brand span { color: var(--accent); }
+    nav { display: flex; gap: 24px; align-items: center; font-size: .92rem; color: #3e4652; }
+    nav a:hover, .text-link:hover { color: var(--accent); }
+    .menu { display: none; border: 1px solid var(--line); background: white; padding: 9px 12px; border-radius: 10px; font: inherit; }
+    .hero { padding: 94px 0 76px; background: linear-gradient(120deg, #fff 0%, #f2f5fc 100%); border-bottom: 1px solid var(--line); }
+    .hero-grid { display: grid; grid-template-columns: 1.5fr .8fr; gap: 56px; align-items: center; }
+    .eyebrow { display: inline-flex; gap: 9px; align-items: center; color: var(--accent); background: var(--soft); border-radius: 999px; padding: 7px 13px; font-size: .82rem; font-weight: 700; }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.2rem); line-height: 1.02; letter-spacing: -.065em; margin: 22px 0 18px; }
+    h1 span { color: var(--accent); }
+    .lead { max-width: 690px; color: var(--muted); font-size: 1.12rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; padding: 12px 19px; border-radius: 11px; font-weight: 700; border: 1px solid var(--ink); transition: .2s; }
+    .btn.primary { background: var(--ink); color: white; border-color: var(--ink); }
+    .btn.primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+    .btn.secondary { background: white; }
+    .btn.secondary:hover { border-color: var(--accent); color: var(--accent); }
+    .profile-card { background: var(--dark); color: white; border-radius: 24px; padding: 30px; box-shadow: 0 22px 55px rgba(17,24,39,.14); }
+    .monogram { width: 74px; height: 74px; display: grid; place-items: center; border-radius: 20px; background: #263b68; color: #fff; font-size: 1.65rem; font-weight: 800; letter-spacing: -.06em; margin-bottom: 26px; }
+    .profile-card h2 { font-size: 1.35rem; margin: 0 0 4px; }
+    .profile-card p { color: #c5ccda; margin: 0; }
+    .profile-meta { border-top: 1px solid #394354; margin-top: 22px; padding-top: 18px; display: grid; gap: 10px; font-size: .9rem; color: #e3e8f2; }
+    section { padding: 78px 0; }
+    .section-head { max-width: 690px; margin-bottom: 32px; }
+    .kicker { color: var(--accent); text-transform: uppercase; letter-spacing: .13em; font-weight: 800; font-size: .75rem; }
+    h2.section-title { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.05em; line-height: 1.1; margin: 9px 0 12px; }
+    .section-head p, .muted { color: var(--muted); }
+    .about-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 22px; }
+    .panel, .skill-card, .work-card, .experience-card, .contact-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 27px; }
+    .panel p { margin-top: 0; color: var(--muted); }
+    .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .fact { padding: 17px; border-radius: 13px; background: #f6f7f9; }
+    .fact strong { display: block; font-size: 1.35rem; letter-spacing: -.04em; }
+    .fact span { color: var(--muted); font-size: .84rem; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .skill-card .icon, .work-icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; background: var(--soft); color: var(--accent); font-weight: 800; margin-bottom: 18px; }
+    .skill-card h3, .work-card h3, .experience-card h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .skill-card p, .work-card p { color: var(--muted); margin: 0; font-size: .94rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .tag { font-size: .78rem; color: #39465b; background: #f0f2f6; border-radius: 999px; padding: 5px 10px; }
+    .experience { display: grid; gap: 16px; }
+    .exp-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+    .date { color: var(--accent); font-size: .86rem; font-weight: 700; }
+    .company { color: var(--muted); margin: 0 0 14px; }
+    ul { padding-left: 20px; color: var(--muted); margin-bottom: 0; }
+    li { margin: 6px 0; }
+    .education-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .contact { background: var(--dark); color: white; }
+    .contact .section-head p { color: #c4ccda; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .contact-card { background: #1c2637; border-color: #354052; }
+    .contact-card span { display: block; color: #aab5c7; font-size: .8rem; margin-bottom: 5px; }
+    .contact-card a { overflow-wrap: anywhere; font-weight: 650; }
+    .contact .btn.secondary { border-color: white; }
+    footer { background: #0b1220; color: #9da8ba; padding: 22px 0; font-size: .85rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    @media (max-width: 800px) {
+      .hero-grid, .about-grid { grid-template-columns: 1fr; }
+      .hero { padding: 70px 0 58px; }
+      .profile-card { max-width: 520px; }
+      .cards { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: min(100% - 30px, var(--max)); }
+      .nav { min-height: 64px; }
+      .menu { display: inline-flex; }
+      nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: white; border-bottom: 1px solid var(--line); padding: 18px 22px; flex-direction: column; align-items: flex-start; gap: 14px; }
+      nav.open { display: flex; }
+      .hero { padding: 56px 0 48px; }
+      h1 { font-size: clamp(2.7rem, 14vw, 4rem); }
+      section { padding: 58px 0; }
+      .cards, .education-grid, .contact-grid { grid-template-columns: 1fr; }
+      .facts { grid-template-columns: 1fr 1fr; }
+      .panel, .skill-card, .work-card, .experience-card, .contact-card { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home">SABITH<span>.</span></a>
+    <button class="menu" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav id="navLinks" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#work">What I Do</a>
+      <a href="#experience">Experience</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">WEB DEVELOPMENT&nbsp; · &nbsp;DIGITAL MARKETING</div>
+        <h1>Hi, I'm<br><span>Sabith PC.</span></h1>
+        <p class="lead">A BCA graduate with professional experience across website development, website management and digital marketing. I bring together technical skills and online marketing experience to support a brand's digital presence.</p>
+        <div class="actions">
+          <a class="btn primary" href="#contact">Contact Me</a>
+          <a class="btn secondary" href="#work">Explore My Skills</a>
+        </div>
+      </div>
+      <aside class="profile-card">
+        <div class="monogram">SP</div>
+        <h2>Sabith PC</h2>
+        <p>Web Developer &amp; Digital Marketing</p>
+        <div class="profile-meta">
+          <div>📍 Dubai, United Arab Emirates</div>
+          <div>✉ sabithpc123@gmail.com</div>
+          <div>☎ +971 54 723 3175</div>
+          <div>in <a href="https://linkedin.com/in/sabith-pc-303770255" target="_blank" rel="noopener">LinkedIn Profile ↗</a></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">About me</div>
+        <h2 class="section-title">A blend of development and digital marketing.</h2>
+        <p>I am a Bachelor of Computer Applications graduate with over 2 years of professional experience, including GCC experience and hands-on MERN Stack development experience.</p>
+      </div>
+      <div class="about-grid">
+        <div class="panel">
+          <p>My experience includes building and maintaining WordPress websites, working with Elementor, managing website content, supporting SEO activities, creating digital content and handling social media and online marketing tasks.</p>
+          <p>I have also worked on frontend and backend development using React, Node.js and MongoDB. I enjoy learning new tools, solving problems and working collaboratively.</p>
+        </div>
+        <div class="facts">
+          <div class="fact"><strong>2+ years</strong><span>Professional experience, as stated in CV</span></div>
+          <div class="fact"><strong>1.6 years</strong><span>GCC experience, as stated in CV</span></div>
+          <div class="fact"><strong>6 months</strong><span>MERN Stack development</span></div>
+          <div class="fact"><strong>BCA</strong><span>Bachelor of Computer Applications</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Skills &amp; tools</div>
+        <h2 class="section-title">My skill set</h2>
+        <p>Core skills and technologies listed in my CV.</p>
+      </div>
+      <div class="cards">
+        <article class="skill-card"><div class="icon">01</div><h3>Web Development</h3><p>Website creation, updates, page layouts and responsive web design.</p><div class="tags"><span class="tag">WordPress</span><span class="tag">Elementor</span><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">Angular</span><span class="tag">PHP</span></div></article>
+        <article class="skill-card"><div class="icon">02</div><h3>Digital Marketing</h3><p>Social media marketing, campaign support and digital content creation.</p><div class="tags"><span class="tag">Google Ads</span><span class="tag">Meta Ads</span><span class="tag">SEO</span><span class="tag">Canva</span><span class="tag">Content Creation</span></div></article>
+        <article class="skill-card"><div class="icon">03</div><h3>Website Management</h3><p>Website updates, content management, hosting tasks and basic troubleshooting.</p><div class="tags"><span class="tag">Website Updates</span><span class="tag">Page Layout</span><span class="tag">Hosting</span><span class="tag">Troubleshooting</span></div></article>
+        <article class="skill-card"><div class="icon">04</div><h3>MERN Stack</h3><p>Experience with frontend and backend development of web applications.</p><div class="tags"><span class="tag">React.js</span><span class="tag">Node.js</span><span class="tag">MongoDB</span></div></article>
+        <article class="skill-card"><div class="icon">05</div><h3>Technical Skills</h3><p>Additional programming, database and IT support knowledge.</p><div class="tags"><span class="tag">MySQL</span><span class="tag">Python</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">C++</span><span class="tag">Network Configuration</span></div></article>
+        <article class="skill-card"><div class="icon">06</div><h3>Professional Skills</h3><p>Communication, teamwork and organized delivery of tasks.</p><div class="tags"><span class="tag">Communication</span><span class="tag">Time Management</span><span class="tag">Documentation</span><span class="tag">Problem Solving</span><span class="tag">Team Collaboration</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Areas of work</div>
+        <h2 class="section-title">How I can contribute</h2>
+        <p>These service areas reflect the responsibilities and skills described in my CV. Specific project samples and campaign results can be added when available.</p>
+      </div>
+      <div class="cards">
+        <article class="work-card"><div class="work-icon">W</div><h3>WordPress Websites</h3><p>Creating and updating pages with WordPress and Elementor, maintaining website content and supporting responsive layouts.</p></article>
+        <article class="work-card"><div class="work-icon">M</div><h3>Marketing &amp; Campaigns</h3><p>Supporting Google Ads and Meta Ads activities, WhatsApp and email marketing, lead tracking and reporting.</p></article>
+        <article class="work-card"><div class="work-icon">S</div><h3>Social Media &amp; Content</h3><p>Managing social channels, preparing digital content and supporting online brand visibility.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Career</div>
+        <h2 class="section-title">Professional experience</h2>
+      </div>
+      <div class="experience">
+        <article class="experience-card">
+          <div class="exp-top"><h3>Web Developer &amp; Digital Marketing</h3><span class="date">Apr 2025 – Present</span></div>
+          <p class="company">Medafia Conferences · Dubai, UAE</p>
+          <ul>
+            <li>Website updates and maintenance, including hosting server management and configuration.</li>
+            <li>SEO and content-related activities.</li>
+            <li>Social media account management across Pinterest, X, Instagram, Google Business Profile, YouTube, LinkedIn and Facebook.</li>
+            <li>WhatsApp marketing, email marketing, Facebook Ads and Meta account management.</li>
+            <li>Lead tracking, reporting, competitor checks and recurring payment management.</li>
+          </ul>
+        </article>
+        <article class="experience-card">
+          <div class="exp-top"><h3>MERN Stack Developer</h3><span class="date">Jun 2023 – Dec 2023</span></div>
+          <p class="company">Luminar Technolab · India</p>
+          <ul>
+            <li>Built and maintained web applications and worked with developers to update websites and create features.</li>
+            <li>Worked on frontend and backend development using Node.js, MongoDB and React.js.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Education &amp; credentials</div><h2 class="section-title">Learning foundation</h2></div>
+      <div class="education-grid">
+        <article class="panel"><h3>Bachelor of Computer Applications (BCA)</h3><p class="muted">Kannur University · Kannur, India</p><p class="muted">July 2020 – March 2023</p></article>
+        <article class="panel"><h3>Certificates</h3><ul><li>NACTET Certificate for MERN</li><li>Project Certification for “OceanHarvest”</li><li>Full Stack Developer Intern</li></ul></article>
+      </div>
+      <div style="margin-top:18px" class="panel"><strong>Languages</strong><p class="muted" style="margin:7px 0 0">English · Malayalam · Tamil</p></div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker" style="color:#9db7ff">Get in touch</div>
+        <h2 class="section-title">Let's connect.</h2>
+        <p>For opportunities in web development, WordPress and digital marketing, feel free to contact me.</p>
+        <div class="actions"><a class="btn secondary" href="mailto:sabithpc123@gmail.com">Email Me</a><a class="btn secondary" href="https://linkedin.com/in/sabith-pc-303770255" target="_blank" rel="noopener">LinkedIn Profile</a></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card"><span>Email</span><a href="mailto:sabithpc123@gmail.com">sabithpc123@gmail.com</a></div>
+        <div class="contact-card"><span>Phone</span><a href="tel:+971547233175">+971 54 723 3175</a></div>
+        <div class="contact-card"><span>Location</span><div>Dubai, United Arab Emirates</div></div>
+        <div class="contact-card"><span>LinkedIn</span><a href="https://linkedin.com/in/sabith-pc-303770255" target="_blank" rel="noopener">linkedin.com/in/sabith-pc-303770255</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><span>© <span id="year"></span> Sabith PC</span><span>Web Developer &amp; Digital Marketing</span></div></footer>
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+  navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }));
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
